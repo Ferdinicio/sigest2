@@ -1,5 +1,8 @@
 
 
+<%@page import="java.util.List"%>
+<%@page import="sistema.Sistema"%>
+<%@page import="sistema.PessoaFisica"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -65,12 +68,16 @@
            <div>Cliente: <%--  Este trecho vai trazer a lista de todos os 
 clientes, fazer busca no BD e trazer pro select     
             --%>
+         <%
+         
+                List <PessoaFisica> listpessoa = Sistema.instancia().getListPessoaFisica();
+                for (int i=0; i < listpessoa.size(); i++){
+                   PessoaFisica P = listpessoa.get(i);
+                
+        
+         %>
                 <select name="p.cliente"> 
-                <option value="Cliente1" selected>Cliente 1</option>
-                <option value="Cliente2" >Cliente 2</option>
-                <option value="Cliente3" >Cliente 3</option>
-                <option value="Cliente4" >Cliente 4</option>
-                <option value="Cliente5" >Cliente 5</option>
+                <option value="Cliente1" selected><%=P.getNome() %></option>
             </select></div>
             <br>
             <div>Equipamento:<br>
