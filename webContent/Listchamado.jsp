@@ -6,7 +6,6 @@
 
 
 
-<%@page import="sistema.PessoaFisica"%>
 <%@page import="sistema.Processo"%>
 <%@page import="java.util.List"%>
 <%@page import="sistema.Sistema"%>
@@ -70,14 +69,14 @@ legend{
             <legend>Chamados</legend>
          <form action="formAtendimento.jsp" method="get"> 
         <%
-                List <PessoaFisica> listpessoa = Sistema.instancia().getListPessoaFisica();
-                for (int i=0; i < listpessoa.size(); i++){
-                   PessoaFisica P = listpessoa.get(i);
+                List <Processo> listprocesso = Sistema.instancia().getListProcesso();
+                for (int i=0; i < listprocesso.size(); i++){
+                   Processo P = listprocesso.get(i);
                 
          %>
          <legend>Chamado <br>
-      <textarea name = "cliente"><%=P.getNome()%></textarea><br>
-        <textarea name = "descricao"><%=P.getRua() %></textarea><br>
+      <textarea name = "cliente"><%=P.getCliente()%></textarea><br>
+        <textarea name = "descricao"><%=P.getDescricao()%></textarea><br>
         <textarea name = "equipamento"><%=P.getEquipamento()%></textarea><br>
         <textarea name = "observacao"><%=P.getObservacao()%></textarea><br></legend>
         <%--  <h2> Tempo inicio </h2> 

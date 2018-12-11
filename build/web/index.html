@@ -5,80 +5,14 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-
     <head>
-       
         <title>SIGEST</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-    input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 30px;
-    box-sizing: border-box;
-}
-
-    input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 30px 50px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-}
-   input[type=submit]:hover {
-    background-color: #45a049;
-}
- 
-
-    div {
-    border-radius: 30px;
-    background-color: #f2f2f2;
-    padding: 60px;
-}    
-    .container {
-    
-        
-        background: cadetblue;
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: center;
-        align-items: center;
-}
-legend{
-    
-       border-radius: 30px;
-    background-color: #f2f2f2;
-    padding: 10px;
-}
-    </style>
-    
     </head>
-    
     <body>
-       <div class="container">
-        <fieldset>
-            <legend>Menu SIGEST</legend>
-                  <form action="formChamado.jsp" method="get">
-        <div><input type ="submit" value="Abrir Chamado">
-            </form>
-        <form action="viewChamado.jsp" method="get">
-        <input type ="submit" value="Ver Chamados">
-            </form>
-          <form action="formAtendimento.jsp" method="get">
-       <input type ="submit" value="Atender chamados">
-            </form>
-          <form action="formPessoaFisica.jsp" method="get">
-        <input type ="submit" value="Cadastrar Pessoa"></div>
-            </form>
-        
-        </fieldset>
-           </div>
+        <a href = "formChamado.jsp" >Abrir chamado</a></br></br>
+        <a href = "viewChamado.jsp" >Ver chamados</a></br></br>
+        <a href = "formAtendimento.jsp" >Atender chamado</a>
     </body>
 </html>

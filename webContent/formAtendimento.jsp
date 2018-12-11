@@ -1,9 +1,9 @@
 <%-- 
-    Document   : Listprocesso
-    Created on : 14/11/2018, 10:37:20
-    Author     : lec
+    Document   : formAtendimento
+    Created on : 27/11/2018, 22:56:47
+    Author     : Ferdinicio
+Formulario que lista os atendimentos abertos e possibilita o atendimento do mesmo
 --%>
-
 
 
 <%@page import="sistema.Processo"%>
@@ -14,25 +14,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Atendimento em andamento SIGEST</title>
+        <title>Atendimento em andamento</title>
     </head>
     <body>
-         <form action="formAtendimento.jsp" method="get"> 
+        Atender Chamado
+        <form action="formAtender.jsp" method="get"> 
         <%
                 List <Processo> listprocesso = Sistema.instancia().getListProcesso();
                 for (int i=0; i < listprocesso.size(); i++){
                     Processo P = listprocesso.get(i);
                 
         %>
-        <textarea name = "cliente"><%=P.getCliente()%></textarea></br>
-        <textarea name = "descricao"><%=P.getDescricao()%></textarea></br>
-        <textarea name = "equipamento"><%=P.getEquipamento()%></textarea></br>
-        <textarea name = "observacao"><%=P.getObservacao()%></textarea></br>
+        <textarea name = "cliente"><%=P.getCliente()%></textarea>
+        <textarea name = "descricao"><%=P.getDescricao()%></textarea>
+        <input type ="submit" value="Atender">
         <%--  <h2> Tempo inicio </h2> 
        <%=P.getTempoInicio()%>--%>
         <%}%>
-        <input type ="submit" value="Atender chamado">
-        <div> <a href="index.html">inicio</a> </div>
-         </form>   
+       </form>
     </body>
 </html>

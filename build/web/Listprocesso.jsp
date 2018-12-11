@@ -14,10 +14,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Atendimento em andamento SIGEST</title>
+        <title>Atendimento em andamento</title>
     </head>
     <body>
-         <form action="formAtendimento.jsp" method="get"> 
         <%
                 List <Processo> listprocesso = Sistema.instancia().getListProcesso();
                 for (int i=0; i < listprocesso.size(); i++){
@@ -31,8 +30,6 @@
         <%--  <h2> Tempo inicio </h2> 
        <%=P.getTempoInicio()%>--%>
         <%}%>
-        <input type ="submit" value="Atender chamado">
-        <div> <a href="index.html">inicio</a> </div>
-         </form>   
+       
     </body>
 </html>
