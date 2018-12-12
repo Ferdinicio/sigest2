@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package sistema;
 
 import java.sql.Connection;
@@ -9,15 +13,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Sistema {
-      private static Sistema instancia;      
+public class SisAtendimento {
+    
+    
+      private static SisAtendimento instancia;      
   
-  private Sistema() {
+  private SisAtendimento() {
       
   }
-    
-
-  public List<PessoaFisica> getListPessoaFisica (){
+  
+   public List<Atendimento> getListAtendimento (){
 	  
       Connection conn = null;
 	try {
@@ -29,13 +34,13 @@ public class Sistema {
       
       PreparedStatement pstm = null;
 	try {
-		pstm = conn.prepareStatement("Select * from pessoaFisica");
+		pstm = conn.prepareStatement("Select * from Atendimento");
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
       
-      List<PessoaFisica> listPessoaFisica = new ArrayList<PessoaFisica>();
+      List<Atendimento> listAtendimento = new ArrayList<Atendimento>();
       ResultSet rs = null;
 	try {
 		rs = pstm.executeQuery();
@@ -46,12 +51,15 @@ public class Sistema {
       try {
 		while(rs.next()) {
 			  
-			  PessoaFisica p = new PessoaFisica();
+			  Atendimento a = new Atendimento();
 			  
-			  p.setNome(rs.getString("nome"));
-			  p.setRua(rs.getString("rua"));
+			  a.setCliente(rs.getString("cliente.nome"));
+			  a.setDescricao(rs.getString("descricao"));
+                          a.setEquipamento(rs.getString("equipamento"));
+                          a.setObservacao(rs.getString("observacao"));
+                         
 			  
-			  listPessoaFisica.add(p);
+			  listAtendimento.add(a);
 		  }
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
@@ -63,10 +71,10 @@ public class Sistema {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}  
-      return listPessoaFisica;
+      return listAtendimento;
   }
-  
-  public void insertPessoaFisica(PessoaFisica pessoaFisica) {
+
+    public void insertAtendimento(Atendimento atendimento) {
 	  
       Connection conn = null;
 	try {
@@ -78,10 +86,14 @@ public class Sistema {
       
       PreparedStatement pstm = null;
 	try {
-		pstm = conn.prepareStatement("insert into pessoaFisica (nome,rua) values (?,?) ");
+		pstm = conn.prepareStatement("insert into Atendimento (cliente.nome,descricao,equipamento,observacao) values (?,?,?,?) ");
 		
-		pstm.setString(1, pessoaFisica.getNome());
-		pstm.setString(2, pessoaFisica.getRua());
+		pstm.setString(1, atendimento.getCliente());
+		pstm.setString(2, atendimento.getDescricao());
+                pstm.setString(3, atendimento.getEquipamento());
+                pstm.setString(4, atendimento.getObservacao());
+               
+                
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -103,18 +115,12 @@ public class Sistema {
 	}
 	
   }
-  
- 
-  
-  public static void main(String[] args) {
-	
-	  PessoaFisica pf = new PessoaFisica();
-	  pf.setNome("oliveira");
-	  pf.setRua("republica do peru");
-	  
-	  Sistema.instancia().insertPessoaFisica(pf);
-	  
-	  
-	  System.out.println(Sistema.instancia().getListPessoaFisica());
+  public static SisAtendimento instancia() {
+      
+      if(instancia == null) {
+          instancia = new SisAtendimento();
+      }
+      return instancia;
   }
+    
 }

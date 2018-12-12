@@ -68,7 +68,9 @@
            <div>Cliente: <%--  Este trecho vai trazer a lista de todos os 
 clientes, fazer busca no BD e trazer pro select     
             --%>
-         <%
+       
+                <select name="p.cliente"> 
+                      <%
          
                 List <PessoaFisica> listpessoa = Sistema.instancia().getListPessoaFisica();
                 for (int i=0; i < listpessoa.size(); i++){
@@ -76,10 +78,9 @@ clientes, fazer busca no BD e trazer pro select
                 
         
          %>
-                <select name="p.cliente"> 
-                <option value="Cliente1" selected><%=P.getNome() %></option>
+                <option value="Cliente1" selected><%=P.getNome() %><%}%></option>
             </select></div>
-            <%}%>
+            
             <br>
             <div>Equipamento:<br>
             <input type="radio" name="p.equipamento" value="Desktop" checked> Desktop<br>
