@@ -25,8 +25,8 @@ Formulario que lista os atendimentos abertos e possibilita o atendimento do mesm
                     Processo P = listprocesso.get(i);
                 
         %>
-        <textarea name = "cliente"><%=P.getCliente()%></textarea></br>
-        <textarea name = "descricao"><%=P.getDescricao()%></textarea></br>
+        <textarea name = "cliente"><%=P.getCliente()%></textarea>
+        <textarea name = "descricao"><%=P.getDescricao()%></textarea>
         <input type ="submit" value="Atender">
         <%--  <h2> Tempo inicio </h2> 
        <%=P.getTempoInicio()%>--%>

@@ -61,16 +61,16 @@
         <div class="container">
              <fieldset>
             <legend>Abertura de chamado</legend>
-        <form action="formChamadoCtr.jsp" method="get">  <!porque get?>
+        <form action="formChamadoCtr.jsp" method="get">  
            
             <div>Descrição do problema:<input type="text" name="p.descricao"></div><br>
                      
            <div>Cliente: <%--  Este trecho vai trazer a lista de todos os 
 clientes, fazer busca no BD e trazer pro select     
             --%>
-       
+         
                 <select name="p.cliente"> 
-                      <%
+                <%
          
                 List <PessoaFisica> listpessoa = Sistema.instancia().getListPessoaFisica();
                 for (int i=0; i < listpessoa.size(); i++){
@@ -78,7 +78,8 @@ clientes, fazer busca no BD e trazer pro select
                 
         
          %>
-                <option value="Cliente1" selected><%=P.getNome() %><%}%></option>
+                <option value="<%=P.getNome() %>" selected><%=P.getNome() %><% }%></option>
+                
             </select></div>
             
             <br>

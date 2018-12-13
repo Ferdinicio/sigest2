@@ -13,10 +13,11 @@
     </head>
     <body>
        <select>
-           <%for(int i ; i< listservico.size(); i++) %>
+           <%for(int i = 0 ; i< listServico.size(); i++)
            
            servico S = listServico.get(i);
-           
+           %>
+       </select>  
            
     </body>
 </html>

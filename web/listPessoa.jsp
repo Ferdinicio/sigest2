@@ -1,22 +1,10 @@
-<%-- 
-    Document   : Listprocesso
-    Created on : 14/11/2018, 10:37:20
-    Author     : Ferdinicio
---%>
-
-
-
-<%@page import="sistema.Processo"%>
-<%@page import="sistema.SisAtendimento"%>
-<%@page import="sistema.Atendimento"%>
-<%@page import="java.util.List"%>
 <%@page import="sistema.Sistema"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@page import="sistema.PessoaFisica"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-     <html>
 <head>
     
     <style>
@@ -84,36 +72,31 @@
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Lista de Chamados</title>
+<title>Lista de Clientes</title>
 </head>
 <body>
     <table id="customers">
 		<tr>
-			<th>Cliente</th>
-			<th>Descrição</th>
-                        <th>Equipamento</th>
-			<th>Observação</th>
-                </tr>>
+			<th>Nome</th>
+			<th>Rua</th>
+		</tr>
 	<% 
 	
-		List<Atendimento> listAtendimento = SisAtendimento.instancia().getListAtendimento();
-		for (int i = 0; i < listAtendimento.size();i++)
+		List<PessoaFisica> listPessoa = Sistema.instancia().getListPessoaFisica();
+		for (int i = 0; i < listPessoa.size();i++)
 			{
-				Atendimento a = listAtendimento.get(i);
+				PessoaFisica pf = listPessoa.get(i);
 		
 	
 	%>
 		<tr>
-			<td><%=a.getCliente() %></td>
-			<td><%=a.getDescricao() %></td>
-                        <td><%=a.getEquipamento() %></td>
-			<td><%=a.getObservacao() %></td>
-                        <%} %>
+			<td><%=pf.getNome() %></td>
+			<td><%=pf.getRua() %></td>
 		</tr>
-		
+		<%} %>
 	</table>
-        <div><form action="formChamado.jsp" method="get">
-                <input type ="submit" value="Cadastrar Novo chamado"></form>
+        <div><form action="formPessoa.jsp" method="get">
+                <input type ="submit" value="Cadastrar Nova Pessoa"></form>
         <form action="index.html" method="get">
             <input type ="submit" value="Inicio"></form></div>
 </body>
