@@ -1,9 +1,11 @@
+package sistema;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistema;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,7 +28,7 @@ public class Connect {
         }
             /** Obtendo a conexao com o banco de dados*/
         Connection conn;
-        conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sigest", "postgres", "postgres123");
+        conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sigest", "postgres", "postgres");
         
         return conn;
     }

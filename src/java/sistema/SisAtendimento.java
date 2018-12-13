@@ -1,9 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sistema;
+
+
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +20,7 @@ public class SisAtendimento {
       
   }
   
-   public List<Atendimento> getListAtendimento (){
+   public List<Atendimento> getListAtendimento(){
 	  
       Connection conn = null;
 	try {
@@ -34,7 +32,7 @@ public class SisAtendimento {
       
       PreparedStatement pstm = null;
 	try {
-		pstm = conn.prepareStatement("Select * from Atendimento");
+		pstm = conn.prepareStatement("select * from public.atendimento");
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -86,7 +84,7 @@ public class SisAtendimento {
       
       PreparedStatement pstm = null;
 	try {
-		pstm = conn.prepareStatement("insert into Atendimento (cliente.nome,descricao,equipamento,observacao) values (?,?,?,?) ");
+		pstm = conn.prepareStatement("insert into public.atendimento (cliente,descricao,equipamento,observacao) values (?,?,?,?) ");
 		
 		pstm.setString(1, atendimento.getCliente());
 		pstm.setString(2, atendimento.getDescricao());
