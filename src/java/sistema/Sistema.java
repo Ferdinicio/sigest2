@@ -30,7 +30,7 @@ public class Sistema {
       
       PreparedStatement pstm = null;
 	try {
-		pstm = conn.prepareStatement("Select * from public.\"pessoaFisica\"");
+		pstm = conn.prepareStatement("Select * from public.pessoafisica");
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -51,7 +51,11 @@ public class Sistema {
 			  
 			  p.setNome(rs.getString("nome"));
 			  p.setRua(rs.getString("rua"));
-			  
+                          p.setFuncao(rs.getString("funcao"));
+                          p.setLogin(rs.getString("login"));
+                          p.setSenha(rs.getString("senha"));
+                          p.setId(rs.getInt("id"));
+                        
 			  listPessoaFisica.add(p);
 		  }
 	} catch (SQLException e) {
@@ -79,10 +83,13 @@ public class Sistema {
       
       PreparedStatement pstm = null;
 	try {
-		pstm = conn.prepareStatement("insert into public.\"pessoaFisica\" (nome,rua) values (?,?) ");
+		pstm = conn.prepareStatement("insert into public.pessoafisica (nome,rua,login,senha,funcao) values (?,?,?,?,?) ");
 		
 		pstm.setString(1, pessoaFisica.getNome());
 		pstm.setString(2, pessoaFisica.getRua());
+                pstm.setString(3, pessoaFisica.getLogin());
+                pstm.setString(4, pessoaFisica.getSenha());
+                pstm.setString(5, pessoaFisica.getFuncao());
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

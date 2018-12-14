@@ -10,6 +10,7 @@ public class Atendimento {
     private String cliente;
     private String equipamento;
     private String observacao;
+    private int os;
     
     private long tempoInicio;
     private long tempoFim;
@@ -37,6 +38,12 @@ public class Atendimento {
 }
     public String getObservacao (){
         return observacao; 
+    }
+        public void setOs (int os) {
+    this.os = os; 
+}
+    public int getOs (){
+        return os; 
     }
     
     public void setTempoInicio (long tempoInicio){

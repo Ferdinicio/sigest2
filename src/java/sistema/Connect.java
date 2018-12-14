@@ -28,7 +28,7 @@ public class Connect {
         }
             /** Obtendo a conexao com o banco de dados*/
         Connection conn;
-        conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sigest", "postgres", "postgres");
+        conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/sigest", "postgres", "Ferd#2107");
         
         return conn;
     }

@@ -51,10 +51,12 @@ public class SisAtendimento {
 			  
 			  Atendimento a = new Atendimento();
 			  
-			  a.setCliente(rs.getString("cliente.nome"));
+			  a.setCliente(rs.getString("cliente"));
 			  a.setDescricao(rs.getString("descricao"));
                           a.setEquipamento(rs.getString("equipamento"));
                           a.setObservacao(rs.getString("observacao"));
+                          a.setOs(rs.getInt("os"));
+                 
                          
 			  
 			  listAtendimento.add(a);
