@@ -65,20 +65,13 @@
 <body>
 	 <div class="container">
              <fieldset>
-            <legend>Cadastro de Usuário</legend>
+            <legend>Informe seu id Técnico</legend>
             
-        <form action="formPessoaCtr.jsp" method="get"> 
-        <div>Nome: <input type= "text" name ="nome"><br>
-        Login: <input type= "text" name ="login"><br>
-        Senha <input type= "password" name ="senha"><br>
-        Endereço: <input type= "text" name ="rua"><br>
-        <select name="funcao">
-            
-            <option value="tecnico" selected>Técnico</option>
-            <option value="Cliente" selected>Cliente</option>
-                
-            </select></div><br>
-        <input type ="submit" value="Registrar">
+        <form action="areaTec.jsp" method="get"> 
+        <div><input type= "text" name ="tecnico"><br>
+  
+        </div><br>
+        <input type ="submit" value="Validar">
         </form>
               <form action="index.html" method="get"> 
         <input type ="submit" value="Inicio">

@@ -65,20 +65,13 @@
 <body>
 	 <div class="container">
              <fieldset>
-            <legend>Cadastro de Usuário</legend>
+            <legend>Informe o nome do cliente</legend>
             
-        <form action="formPessoaCtr.jsp" method="get"> 
-        <div>Nome: <input type= "text" name ="nome"><br>
-        Login: <input type= "text" name ="login"><br>
-        Senha <input type= "password" name ="senha"><br>
-        Endereço: <input type= "text" name ="rua"><br>
-        <select name="funcao">
-            
-            <option value="tecnico" selected>Técnico</option>
-            <option value="Cliente" selected>Cliente</option>
-                
-            </select></div><br>
-        <input type ="submit" value="Registrar">
+        <form action="areaCli.jsp" method="get"> 
+        <div><input type= "text" name ="cliente"><br>
+  
+        </div><br>
+        <input type ="submit" value="Buscar chamados">
         </form>
               <form action="index.html" method="get"> 
         <input type ="submit" value="Inicio">

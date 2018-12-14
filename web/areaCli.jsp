@@ -1,10 +1,22 @@
-<%@page import="sistema.Sistema"%>
-<%@page import="sistema.PessoaFisica"%>
+<%-- 
+    Document   : Listprocesso
+    Created on : 14/11/2018, 10:37:20
+    Author     : Ferdinicio
+--%>
+
+
+
+<%@page import="sistema.Processo"%>
+<%@page import="sistema.SisAtendimento"%>
+<%@page import="sistema.Atendimento"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="sistema.Sistema"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <html>
 <head>
     
     <style>
@@ -72,34 +84,46 @@
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Lista de Clientes</title>
+<title>Lista de Chamados</title>
 </head>
 <body>
     <table id="customers">
-		<tr>
-			<th>Nome</th>
-			<th>Endereço</th>
-                        <th>Função</th>
-			
-		</tr>
-	<% 
+		
 	
-		List<PessoaFisica> listPessoa = Sistema.instancia().getListPessoaFisica();
+        <tr>
+                        <th>Atender</th>
+                        <th>OS</th>
+                        <th>Cliente</th>
+			<th>Descrição</th>
+                        <th>Equipamento</th>
+			<th>Observação</th>
+		</tr>
+                     <% 
+                   String cliente = request.getParameter ("cliente");
+		List<Atendimento> listPessoa = SisAtendimento.instancia().getListAtendimento();
 		for (int i = 0; i < listPessoa.size();i++)
 			{
-				PessoaFisica pf = listPessoa.get(i);
+				Atendimento pf = listPessoa.get(i);
+                                if (pf.getCliente().equals(cliente)){
 		
 	
 	%>
 		<tr>
-			<td><%=pf.getNome() %></td>
-			<td><%=pf.getRua() %></td>
-                        <td><%=pf.getFuncao() %></td>
+			<td><input type="radio" name="a.atender" value="<%=pf.getOs() %>" checked></td>    
+		
+                        <td><%=pf.getOs() %></td>
+                        <td><%=pf.getCliente() %></td>
+			<td><%=pf.getDescricao() %></td>
+                        <td><%=pf.getEquipamento() %></td>
+			<td><%=pf.getObservacao() %></td>
 		</tr>
+                <%}else{ %>
+              
+                
+                <%} %>
 		<%} %>
 	</table>
-        <div><form action="formPessoa.jsp" method="get">
-                <input type ="submit" value="Cadastrar Nova Pessoa"></form>
+        <div>
         <form action="index.html" method="get">
             <input type ="submit" value="Inicio"></form></div>
 </body>

@@ -88,32 +88,40 @@
 </head>
 <body>
     <table id="customers">
-		<tr>
-			<th>Cliente</th>
+		
+	
+        <tr>
+                        <th>Atender</th>
+                        <th>OS</th>
+                        <th>Cliente</th>
 			<th>Descrição</th>
                         <th>Equipamento</th>
 			<th>Observação</th>
-                </tr>>
-	<% 
-	
-		List<Atendimento> listAtendimento = SisAtendimento.instancia().getListAtendimento();
-		for (int i = 0; i < listAtendimento.size();i++)
+		</tr>
+                <% 
+                 
+		List<Atendimento> listPessoa = SisAtendimento.instancia().getListAtendimento();
+		for (int i = 0; i < listPessoa.size();i++)
 			{
-				Atendimento a = listAtendimento.get(i);
+				Atendimento pf = listPessoa.get(i);
+                              
 		
 	
 	%>
 		<tr>
-			<td><%=a.getCliente() %></td>
-			<td><%=a.getDescricao() %></td>
-                        <td><%=a.getEquipamento() %></td>
-			<td><%=a.getObservacao() %></td>
-                        <%} %>
-		</tr>
+			<td><input type="radio" name="a.atender" value="<%=pf.getOs() %>" checked></td>    
 		
+                        <td><%=pf.getOs() %></td>
+                        <td><%=pf.getCliente() %></td>
+			<td><%=pf.getDescricao() %></td>
+                        <td><%=pf.getEquipamento() %></td>
+			<td><%=pf.getObservacao() %></td>
+		</tr>
+            
+		<%} %>
 	</table>
         <div><form action="formChamado.jsp" method="get">
-                <input type ="submit" value="Cadastrar Novo chamado"></form>
+                <input type ="submit" value="Atender Chamado"></form>
         <form action="index.html" method="get">
             <input type ="submit" value="Inicio"></form></div>
 </body>
