@@ -91,7 +91,7 @@
 		
 	
         <tr>
-                        <th>Atender</th>
+                        
                         <th>OS</th>
                         <th>Cliente</th>
 			<th>Descrição</th>
@@ -109,7 +109,7 @@
 	
 	%>
 		<tr>
-			<td><input type="radio" name="a.atender" value="<%=pf.getOs() %>" checked></td>    
+			  
 		
                         <td><%=pf.getOs() %></td>
                         <td><%=pf.getCliente() %></td>
@@ -125,6 +125,6 @@
 	</table>
         <div>
         <form action="index.html" method="get">
-            <input type ="submit" value="Inicio"></form></div>
+            <input type ="submit" value="Sair"></form></div>
 </body>
 </html>

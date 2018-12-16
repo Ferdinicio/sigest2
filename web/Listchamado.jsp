@@ -109,7 +109,8 @@
 	
 	%>
 		<tr>
-			<td><input type="radio" name="a.atender" value="<%=pf.getOs() %>" checked></td>    
+			<td><form action="formChamado.jsp" method="get">
+                            <input type="checkbox" name="a.atender" value="<%=pf.getOs() %>"></td>    
 		
                         <td><%=pf.getOs() %></td>
                         <td><%=pf.getCliente() %></td>
@@ -119,8 +120,10 @@
 		</tr>
             
 		<%} %>
+                
 	</table>
-        <div><form action="formChamado.jsp" method="get">
+                
+        <div>
                 <input type ="submit" value="Atender Chamado"></form>
         <form action="index.html" method="get">
             <input type ="submit" value="Inicio"></form></div>

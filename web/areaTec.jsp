@@ -69,19 +69,7 @@ legend{
     </head>
     
     <body>
-        <% 
-                   String cliente = request.getParameter ("tecnico");
-                   String funcao;
-                   funcao = "tecnico";
-		List<PessoaFisica> listPessoa = Sistema.instancia().getListPessoaFisica();
-		for (int i = 0; i < listPessoa.size();i++)
-			{
-				PessoaFisica pf = listPessoa.get(i);
-                                if ((pf.getNome().equals(cliente))&& (pf.getFuncao().equals(funcao)))
-                                    {
-	
-	%>
-        
+   
        <div class="container">
         <fieldset>
             <legend>Menu SIGEST</legend>
@@ -98,14 +86,10 @@ legend{
         <input type ="submit" value="Listar Usuários">
             </form>
                 <form action="index.html" method="get"> 
-        <input type ="submit" value="Inicio"></div>
+        <input type ="submit" value="Sair"></div>
         </form>
         </fieldset>
            </div>
-        <%}else{ %>
-              
-                
-                <%} %>
-		<%} %>
+  
     </body>
 </html>
