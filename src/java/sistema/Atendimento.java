@@ -10,16 +10,23 @@ public class Atendimento {
     private String cliente;
     private String equipamento;
     private String observacao;
+     private String status;
     private int os;
     
-    private long tempoInicio;
-    private long tempoFim;
+    private String tempoInicio;
+    private String tempoFim;
     
     public void setDescricao (String descricao) {
     this.descricao = descricao; 
 }
     public String getDescricao (){
         return descricao; 
+    }
+    public void setStatus (String status) {
+    this.status = status; 
+}
+    public String getStatus (){
+        return status; 
     }
         public void setCliente (String cliente) {
     this.cliente = cliente; 
@@ -46,16 +53,16 @@ public class Atendimento {
         return os; 
     }
     
-    public void setTempoInicio (long tempoInicio){
+    public void setTempoInicio (String tempoInicio){
         this.tempoInicio = tempoInicio;
     }
-    public long getTempoInicio (){
+    public String getTempoInicio (){
             return tempoInicio; 
         }   
-    public void setTempoFim (long tempoFim){
+    public void setTempoFim (String tempoFim){
         this.tempoFim = tempoFim;
     }
-    public long getTempoFim (){
+    public String getTempoFim (){
         return tempoFim;
     }
 }

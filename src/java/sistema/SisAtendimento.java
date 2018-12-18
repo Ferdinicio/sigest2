@@ -56,6 +56,7 @@ public class SisAtendimento {
                           a.setEquipamento(rs.getString("equipamento"));
                           a.setObservacao(rs.getString("observacao"));
                           a.setOs(rs.getInt("os"));
+                          a.setStatus(rs.getString("status"));
                  
                          
 			  
@@ -86,12 +87,56 @@ public class SisAtendimento {
       
       PreparedStatement pstm = null;
 	try {
-		pstm = conn.prepareStatement("insert into public.atendimento (cliente,descricao,equipamento,observacao) values (?,?,?,?) ");
+		pstm = conn.prepareStatement("insert into public.atendimento (cliente,descricao,equipamento,observacao,status,data) values (?,?,?,?,?,?) ");
 		
 		pstm.setString(1, atendimento.getCliente());
 		pstm.setString(2, atendimento.getDescricao());
                 pstm.setString(3, atendimento.getEquipamento());
                 pstm.setString(4, atendimento.getObservacao());
+                pstm.setString(5, atendimento.getStatus());
+                pstm.setString(6, atendimento.getTempoInicio());
+               
+                
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	try {
+		pstm.execute();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} finally {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+	
+  }
+    
+    public void updateAtendimento(Atendimento atendimento) {
+	  
+      Connection conn = null;
+	try {
+		conn = Connect.getConexao();
+	} catch (SQLException e) {
+
+		e.printStackTrace();
+	}
+      
+      PreparedStatement pstm = null;
+	try {
+		pstm = conn.prepareStatement("update public.atendimento set observacao=?, status=?, data=? where os=?");
+		
+		pstm.setString(1, atendimento.getObservacao());
+		pstm.setString(2, atendimento.getStatus());
+                pstm.setString(3, atendimento.getTempoInicio());
+                pstm.setInt(4, atendimento.getOs());
                
                 
 	} catch (SQLException e) {
