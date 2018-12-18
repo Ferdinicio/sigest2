@@ -1,3 +1,4 @@
+<%@page import="java.text.DateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="sistema.Sistema"%> 
 <%@page import="sistema.SisAtendimento"%> 
@@ -8,11 +9,19 @@
       String cliente = request.getParameter ("p.cliente");
       String equipamento = request.getParameter ("p.equipamento");
       String observacao = request.getParameter ("p.observacao");
-      Atendimento p = new Atendimento (); //instancia um novo processo de Processo.java
+      String status = "Aberto";
+      Atendimento p = new Atendimento(); //instancia um novo processo de Processo.java
       p.setDescricao(descricao); // seta a string que eu dei request na minha descricao ques está dentro de Processo.java 
       p.setCliente(cliente);
       p.setEquipamento(equipamento);
       p.setObservacao(observacao);
+      p.setStatus(status);
+    
+      java.util.Date d = new Date();
+
+String data = java.text.DateFormat.getDateInstance(DateFormat.MEDIUM).format(d);
+      
+      p.setTempoInicio(data);
       // p.setTempoInicio(new Date().getTime()); //set também um valor em tempoInicio do meu Processo.java
       sistema.SisAtendimento.instancia().insertAtendimento(p);
       session.setAttribute("atendimento", p);

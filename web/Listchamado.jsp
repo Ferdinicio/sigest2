@@ -97,6 +97,7 @@
 			<th>Descrição</th>
                         <th>Equipamento</th>
 			<th>Observação</th>
+                        <th>Status</th>
 		</tr>
                 <% 
                  
@@ -109,14 +110,15 @@
 	
 	%>
 		<tr>
-			<td><form action="formChamado.jsp" method="get">
-                            <input type="checkbox" name="a.atender" value="<%=pf.getOs() %>"></td>    
+			<td><form action="formAtendimento.jsp" method="get">
+                            <input type="checkbox" name="atender" value='<%=pf.getOs() %>' ></td>    
 		
                         <td><%=pf.getOs() %></td>
                         <td><%=pf.getCliente() %></td>
 			<td><%=pf.getDescricao() %></td>
                         <td><%=pf.getEquipamento() %></td>
 			<td><%=pf.getObservacao() %></td>
+                        <td><%=pf.getStatus() %></td>
 		</tr>
             
 		<%} %>
@@ -124,8 +126,9 @@
 	</table>
                 
         <div>
+  
                 <input type ="submit" value="Atender Chamado"></form>
-        <form action="index.html" method="get">
+        <form action="areaTec.jsp" method="get">
             <input type ="submit" value="Inicio"></form></div>
 </body>
 </html>

@@ -97,6 +97,7 @@
 			<th>Descrição</th>
                         <th>Equipamento</th>
 			<th>Observação</th>
+                        <th>Status</th>
 		</tr>
                      <% 
                    String cliente = request.getParameter ("cliente");
@@ -116,6 +117,7 @@
 			<td><%=pf.getDescricao() %></td>
                         <td><%=pf.getEquipamento() %></td>
 			<td><%=pf.getObservacao() %></td>
+                        <td><%=pf.getStatus() %></td>
 		</tr>
                 <%}else{ %>
               

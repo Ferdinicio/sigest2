@@ -100,7 +100,7 @@
 	</table>
         <div><form action="formPessoa.jsp" method="get">
                 <input type ="submit" value="Cadastrar Nova Pessoa"></form>
-        <form action="index.html" method="get">
+        <form action="areaTec.jsp" method="get">
             <input type ="submit" value="Inicio"></form></div>
 </body>
 </html>
